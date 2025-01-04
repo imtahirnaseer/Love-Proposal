@@ -52,22 +52,22 @@ This project is a series of HTML pages designed to create an interactive love pr
 ## Screenshots
 
 ### Main Proposal Page (`index.html`)
-![Main Proposal Page](index.png)
+![Main Proposal Page](index.png.png)
 
 ### Acceptance Page (`yes.html`)
-![Acceptance Page](yes.png)
+![Acceptance Page](yes.png.png)
 
 ### Rejection Page 1 (`no1.html`)
-![Rejection Page 1](no1.png)
+![Rejection Page 1](no1.png.png)
 
 ### Rejection Page 2 (`no2.html`)
-![Rejection Page 2](no2.png)
+![Rejection Page 2](no2.png.png)
 
 ### Rejection Page 3 (`no3.html`)
-![Rejection Page 3](no3.png)
+![Rejection Page 3](no3.png.png)
 
 ### Love Journey Page (`cry.html`)
-![Love Journey Page](cry.png)
+![Love Journey Page](cry.png.png)
 
 ## Live Demo
 
