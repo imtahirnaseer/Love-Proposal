@@ -1,0 +1,193 @@
+/* Author - Tahir Naseer */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe5e5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 20px;
+}
+
+.container .tenor-gif-embed {
+    max-width: 200px;
+}
+
+.container .btn {
+    display: flex;
+    gap: 25px;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #111;
+    background: #fff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+} 
+.yes-button, .no-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.yes-button {
+    background-color: #4CAF50;
+}
+
+.no-button {
+    background-color: #f44336;
+}
+
+.yes-button:hover {
+    background-color: #45a049;
+}
+
+.no-button:hover {
+    background-color: #d32f2f;
+}
+
+dotlottie-player {
+    width: 300px;
+    height: 300px;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ff4d4d;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.btn a:hover {
+    background: linear-gradient(45deg, #ff4d4d, #0bc3ba);
+    color: #fff;
+    box-shadow: 0 0 10px #ff4d4d, 0 0 20px #0bc3ba, 0 0 30px #ff4d4d;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    color: #ff4d4d;
+    margin-top: 20px;
+}
+
+.container p {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container .btn a {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* New CSS for the layout */
+.container .gif {
+    width: 300px;
+    height: 300px;
+    margin: 20px 0;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    color: #1ed914;
+    margin-top: 20px;
+}
+
+.container h2 {
+    font-size: 2.5rem;
+    color: #7314d9;
+    margin-top: 20px;
+}
+
+.container .btn {
+    margin-top: 20px;
+}
+
+/* Additional CSS for the new elements */
+.container .gif, .container .image, .container .dotlottie-player {
+    width: 300px;
+    height: 300px;
+    margin: 20px 0;
+}
+
+.container .question {
+    font-size: 1.8rem;
+    color: #ff4d4d;
+    margin: 20px 0;
+}
+
+.container .author {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.container .response {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.response a {
+    text-decoration: none;
+    color: #111;
+    background: #086d08;
+    padding: 10px 25px;
+    border-radius: 8px;
+    box-shadow: 0.5rem 1rem 3rem hsl(0, 0%, 0%, 0.3);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.response a:hover {
+    background: linear-gradient(45deg, #ff4d4d, #0bc3ba);
+    color: #fff;
+    box-shadow: 0 0 10px #ff4d4d, 0 0 20px #0bc3ba, 0 0 30px #ff4d4d;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.right-bottom-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.right-bottom-btn:hover {
+    background-color: #e63946;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
