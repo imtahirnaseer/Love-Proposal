@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      background: linear-gradient(to right, #2d2d2d, #121212);
+      flex-direction: column;
+    }
+
+    .calculator-container {
+      background-color: #1e1e1e;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+    }
+
+    .calculator-container:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 32px;
+      color: white;
+      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: white;
+      font-weight: 500;
+      text-align: left;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 2px solid #444;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #ff6347;
+      box-shadow: 0 0 10px rgba(255, 99, 71, 0.7);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #ff6347;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    button:hover {
+      background-color: #ff4500;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #2e2e2e;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      min-height: 100px;
+    }
+
+    .result-box p {
+      font-size: 18px;
+      color: white;
+      margin: 10px 0;
+    }
+
+    .result-box .love-score {
+      font-size: 24px;
+      color: #ff6347;
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: #ff6347;
+      font-size: 16px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .footer-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(to right, 
+        #ff6347, #ff4500, #ff6347, #ff1493, #ff69b4, 
+        #f0e68c, #adff2f, #7fff00, #d2691e, #ff6347,
+        #800080, #ff00ff, #ff6347, #008080, #ff7f50,
+        #8a2be2, #5f9ea0, #9acd32, #c71585, #ff6347,
+        #d3d3d3, #dda0dd, #ff1493, #ff8c00, #ff00ff, 
+        #9932cc, #ff6347, #8b0000, #adff2f, #40e0d0);
+      color: white;
+      text-align: center;
+      border: none;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px; /* Same width as calculator */
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-btn:hover {
+      background: linear-gradient(to right, 
+        #ff6347, #ff4500, #ff6347, #ff1493, #ff69b4, 
+        #f0e68c, #adff2f, #7fff00, #d2691e, #ff6347,
+        #800080, #ff00ff, #ff6347, #008080, #ff7f50,
+        #8a2be2, #5f9ea0, #9acd32, #c71585, #ff6347,
+        #d3d3d3, #dda0dd, #ff1493, #ff8c00, #ff00ff, 
+        #9932cc, #ff6347, #8b0000, #adff2f, #40e0d0);
+      box-shadow: 0 0 15px rgba(255, 99, 71, 0.8); /* Glowing effect */
+      transform: scale(1.05);
+    }
+
+    .footer-btn:focus {
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+      .calculator-container {
+        width: 90%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      input, button {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-container">
+    <h1>Love Calculator</h1>
+
+    <div class="form-section">
+      <label for="yourName">Your Name</label>
+      <input type="text" id="yourName" placeholder="Enter your name" required>
+
+      <label for="yourDob">Your Date of Birth</label>
+      <input type="date" id="yourDob" required>
+
+      <label for="partnerName">Your Partner's Name</label>
+      <input type="text" id="partnerName" placeholder="Enter your partner's name" required>
+
+      <label for="partnerDob">Partner's Date of Birth</label>
+      <input type="date" id="partnerDob" required>
+
+      <button id="calculateBtn">Calculate Love Compatibility</button>
+    </div>
+
+    <div id="result" class="result-box">
+      <p>Please calculate the love compatibility.</p>
+    </div>
+
+    <div id="error" class="error-message">
+      <!-- Error message will appear here -->
+    </div>
+  </div>
+
+  <a href="https://imtahirnaseer.github.io/Portfolio/" class="footer-btn">Tahir Naseer</a>
+
+  <script>
+    // Function to calculate age based on DOB (Year, Month, Day)
+    function calculateAge(birthDate) {
+      const birth = new Date(birthDate);
+      const today = new Date();
+      let ageYears = today.getFullYear() - birth.getFullYear();
+      let ageMonths = today.getMonth() - birth.getMonth();
+      let ageDays = today.getDate() - birth.getDate();
+
+      if (ageDays < 0) {
+        ageMonths--;
+        ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); // Days in the previous month
+      }
+
+      if (ageMonths < 0) {
+        ageYears--;
+        ageMonths += 12;
+      }
+
+      return { years: ageYears, months: ageMonths, days: ageDays };
+    }
+
+    // Simulating a love compatibility API call
+    async function getLoveCompatibility(yourName, partnerName) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Mock love score based on names
+          const loveScore = Math.floor(Math.random() * 100) + 1;
+          resolve(loveScore);
+        }, 1000); // Simulating a delay (API response time)
+      });
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', async function() {
+      const yourName = document.getElementById('yourName').value;
+      const yourDob = document.getElementById('yourDob').value;
+      const partnerName = document.getElementById('partnerName').value;
+      const partnerDob = document.getElementById('partnerDob').value;
+
+      const errorDiv = document.getElementById('error');
+      const resultDiv = document.getElementById('result');
+      errorDiv.innerHTML = ''; // Clear any previous error messages
+      resultDiv.innerHTML = '<p>Calculating...</p>'; // Set the placeholder while calculating
+
+      if (!yourName || !yourDob || !partnerName || !partnerDob) {
+        alert('Please fill in all fields!');
+        return;
+      }
+
+      const nameRegex = /^[A-Za-z\s]+$/; // Regex to ensure names are alphabetic
+      if (!nameRegex.test(yourName)) {
+        alert('Please enter a valid name for yourself (letters only).');
+        return;
+      }
+      if (!nameRegex.test(partnerName)) {
+        alert('Please enter a valid name for your partner (letters only).');
+        return;
+      }
+
+      const today = new Date();
+      const yourBirthDate = new Date(yourDob);
+      const partnerBirthDate = new Date(partnerDob);
+
+      // Check if DOB is greater than today's date
+      if (yourBirthDate > today || partnerBirthDate > today) {
+        errorDiv.innerHTML = 'Error: Date of Birth cannot be in the future. Please enter a valid date.';
+        return;
+      }
+
+      const yourAge = calculateAge(yourDob);
+      const partnerAge = calculateAge(partnerDob);
+
+      try {
+        // Simulating the API call
+        const loveScore = await getLoveCompatibility(yourName, partnerName);
+
+        // Displaying the result inside a box
+        resultDiv.innerHTML = `
+          <p class="love-score">${yourName} and ${partnerName} have a love compatibility score of:</p>
+          <p class="love-score">${loveScore}%</p>
+          <p>Your age: ${yourAge.years} years, ${yourAge.months} months, ${yourAge.days} days</p>
+          <p>Your partner's age: ${partnerAge.years} years, ${partnerAge.months} months, ${partnerAge.days} days</p>
+        `;
+      } catch (error) {
+        console.error('Error in calculating love compatibility:', error);
+        resultDiv.innerHTML = `<p>Error calculating the compatibility score.</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
